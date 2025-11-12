@@ -30,6 +30,11 @@ class VoiceModule:
 
     def _initialize_voice(self):
         """Initialize speech synthesis and recognition engines"""
+        if pyttsx3 is None:
+            print("⚠️ pyttsx3 not available - voice synthesis disabled")
+            self.use_voice = False
+            return
+
         try:
             self.engine = pyttsx3.init()
             voice_config = self.config.get_voice_config()
@@ -64,9 +69,13 @@ class VoiceModule:
                 self.engine.setProperty('voice', voices[0].id)
                 print(f"✅ Selected default voice: {voices[0].name}")
 
-            self.recognizer = sr.Recognizer()
-            self.recognizer.energy_threshold = 4000
-            self.recognizer.dynamic_energy_threshold = True
+            # Initialize speech recognition if available
+            if sr is not None:
+                self.recognizer = sr.Recognizer()
+                self.recognizer.energy_threshold = 4000
+                self.recognizer.dynamic_energy_threshold = True
+            else:
+                print("⚠️ SpeechRecognition not available - voice recognition disabled")
 
         except Exception as e:
             print(f"⚠️ Voice module initialization failed: {e}")

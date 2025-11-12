@@ -24,6 +24,12 @@ from utils.logger import logger
 global_jarvis = None
 
 
+def get_jarvis():
+    """Get the global JARVIS instance"""
+    global global_jarvis
+    return global_jarvis
+
+
 def create_app():
     """Create and configure Flask application"""
     app = Flask(__name__)

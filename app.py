@@ -52,7 +52,6 @@ def create_app():
 
     # Set global instance for routes
     set_jarvis(jarvis)
-    app.config['JARVIS_INSTANCE'] = jarvis
     app.javis = jarvis
 
     # Register blueprints

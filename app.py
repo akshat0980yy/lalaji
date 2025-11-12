@@ -51,13 +51,9 @@ def create_app():
     app.config['JARVIS_INSTANCE'] = jarvis
 
     # Set global instance for routes
-    global global_jarvis
-    global_jarvis = jarvis
-
-    # Make jarvis available through app context
+    set_jarvis(jarvis)
+    app.config['JARVIS_INSTANCE'] = jarvis
     app.javis = jarvis
-
-    print(f"✅ Global jarvis set: {global_jarvis is not None}")  # Debug line
 
     # Register blueprints
     app.register_blueprint(command_bp)

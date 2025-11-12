@@ -37,7 +37,7 @@ def get_screen():
     """
     try:
         # Get jarvis instance
-        jarvis = request.app.config.get('JARVIS_INSTANCE')
+        jarvis = get_jarvis()
         if not jarvis:
             return jsonify({
                 'success': False,
@@ -110,7 +110,7 @@ def analyze_screen():
             }), 400
 
         # Get jarvis instance
-        jarvis = request.app.config.get('JARVIS_INSTANCE')
+        jarvis = get_jarvis()
         if not jarvis:
             return jsonify({
                 'success': False,
@@ -189,7 +189,7 @@ def click_screen():
             }), 400
 
         # Get jarvis instance
-        jarvis = request.app.config.get('JARVIS_INSTANCE')
+        jarvis = get_jarvis()
         if not jarvis:
             return jsonify({
                 'success': False,
@@ -253,7 +253,7 @@ def search_files():
         max_results = data.get('max_results', 50)
 
         # Get jarvis instance
-        jarvis = request.app.config.get('JARVIS_INSTANCE')
+        jarvis = get_jarvis()
         if not jarvis:
             return jsonify({
                 'success': False,
@@ -310,7 +310,7 @@ def youtube_search():
         limit = data.get('limit', 5)
 
         # Get jarvis instance
-        jarvis = request.app.config.get('JARVIS_INSTANCE')
+        jarvis = get_jarvis()
         if not jarvis:
             return jsonify({
                 'success': False,
@@ -364,7 +364,7 @@ def get_file_info():
             }), 400
 
         # Get jarvis instance
-        jarvis = request.app.config.get('JARVIS_INSTANCE')
+        jarvis = get_jarvis()
         if not jarvis:
             return jsonify({
                 'success': False,

@@ -50,6 +50,8 @@ def create_app():
     # Make jarvis available through app context
     app.javis = jarvis
 
+    print(f"✅ Global jarvis set: {global_jarvis is not None}")  # Debug line
+
     # Register blueprints
     app.register_blueprint(command_bp)
     app.register_blueprint(system_bp)

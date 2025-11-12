@@ -1,5 +1,14 @@
-import speech_recognition as sr
-import pyttsx3
+try:
+    import speech_recognition as sr
+except ImportError:
+    sr = None
+    print("⚠️ SpeechRecognition not available")
+
+try:
+    import pyttsx3
+except ImportError:
+    pyttsx3 = None
+    print("⚠️ pyttsx3 not available")
 
 
 class VoiceModule:

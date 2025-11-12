@@ -20,6 +20,9 @@ from routes.vision_routes import vision_bp
 # Import utilities
 from utils.logger import logger
 
+# Global jarvis instance
+global_jarvis = None
+
 
 def create_app():
     """Create and configure Flask application"""

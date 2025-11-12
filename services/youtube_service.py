@@ -194,8 +194,9 @@ class YouTubeService:
                     playlist.append(info)
             else:
                 # Search query
-                search_results = self.search_youtube_api(video, limit=1)
-                if search_results:
-                    playlist.append(search_results[0])
+                if VideosSearch is not None:
+                    search_results = self.search_youtube_api(video, limit=1)
+                    if search_results:
+                        playlist.append(search_results[0])
 
         return playlist

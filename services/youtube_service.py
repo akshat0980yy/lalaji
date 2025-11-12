@@ -111,6 +111,10 @@ class YouTubeService:
         Returns:
             list: List of video dictionaries
         """
+        if VideosSearch is None:
+            print("YouTubeSearchPython not available - no search results available")
+            return []
+
         try:
             videos_search = VideosSearch(query, limit=limit)
             results = videos_search.result()

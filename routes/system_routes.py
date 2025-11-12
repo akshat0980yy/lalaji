@@ -41,7 +41,7 @@ def get_status():
     """
     try:
         # Get jarvis instance
-        jarvis = request.app.config.get('JARVIS_INSTANCE')
+        jarvis = get_jarvis()
         if not jarvis:
             return jsonify({
                 'success': False,
@@ -110,7 +110,7 @@ def manage_config():
     """
     try:
         # Get jarvis instance
-        jarvis = request.app.config.get('JARVIS_INSTANCE')
+        jarvis = get_jarvis()
         if not jarvis:
             return jsonify({
                 'success': False,
@@ -171,7 +171,7 @@ def get_installed_apps():
     """
     try:
         # Get jarvis instance
-        jarvis = request.app.config.get('JARVIS_INSTANCE')
+        jarvis = get_jarvis()
         if not jarvis:
             return jsonify({
                 'success': False,
@@ -238,7 +238,7 @@ def verify_url():
             }), 400
 
         # Get jarvis instance
-        jarvis = request.app.config.get('JARVIS_INSTANCE')
+        jarvis = get_jarvis()
         if not jarvis:
             return jsonify({
                 'success': False,
@@ -276,7 +276,7 @@ def get_detailed_system_info():
     """
     try:
         # Get jarvis instance
-        jarvis = request.app.config.get('JARVIS_INSTANCE')
+        jarvis = get_jarvis()
         if not jarvis:
             return jsonify({
                 'success': False,

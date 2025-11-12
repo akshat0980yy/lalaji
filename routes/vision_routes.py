@@ -4,22 +4,9 @@ vision_bp = Blueprint('vision', __name__)
 
 
 def get_jarvis():
-    """Get JARVIS instance from app config or global"""
-    try:
-        # Try to get from app config first
-        from flask import current_app
-        jarvis = current_app.config.get('JARVIS_INSTANCE')
-        if jarvis:
-            return jarvis
-    except:
-        pass
-
-    # Fallback to global instance
-    try:
-        from app import get_jarvis as get_global_jarvis
-        return get_global_jarvis()
-    except:
-        return None
+    """Get JARVIS instance from Flask app"""
+    from flask import current_app
+    return current_app.config.get('JARVIS_INSTANCE')
 
 
 @vision_bp.route('/api/screen', methods=['GET'])

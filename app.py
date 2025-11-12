@@ -48,6 +48,9 @@ def create_app():
     global global_jarvis
     global_jarvis = jarvis
 
+    # Make jarvis available through app context
+    app.javis = jarvis
+
     # Register blueprints
     app.register_blueprint(command_bp)
     app.register_blueprint(system_bp)

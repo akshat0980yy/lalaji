@@ -1,6 +1,11 @@
 import webbrowser
 from urllib.parse import quote
-from youtubesearchpython import VideosSearch
+
+try:
+    from youtubesearchpython import VideosSearch
+except ImportError:
+    VideosSearch = None
+    print("⚠️ YouTubeSearchPython not available - using yt-dlp search only")
 
 
 class YouTubeService:

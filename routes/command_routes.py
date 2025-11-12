@@ -3,10 +3,29 @@ from flask import Blueprint, request, jsonify
 command_bp = Blueprint('command', __name__)
 
 
+# Import the global jarvis instance directly
+import sys
+import os
+sys.path.append(os.path.dirname(os.path.dirname(__file__)))
+
 def get_jarvis():
     """Get JARVIS instance from Flask app"""
-    from flask import current_app
-    return current_app.config.get('JARVIS_INSTANCE')
+    try:
+        from flask import current_app
+        jarvis = current_app.config.get('JARVIS_INSTANCE')
+        if jarvis:
+            return jarvis
+    except (RuntimeError, ImportError):
+        pass
+
+    # Fallback - try to access from main app module
+    try:
+        from app import global_jarvis
+        return global_jarvis
+    except ImportError:
+        pass
+
+    return None
 
 
 @command_bp.route('/api/command', methods=['POST'])

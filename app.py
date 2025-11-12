@@ -26,7 +26,6 @@ global_jarvis = None
 
 def get_jarvis():
     """Get the global JARVIS instance"""
-    global global_jarvis
     return global_jarvis
 
 

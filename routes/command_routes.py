@@ -95,7 +95,7 @@ def handle_voice_command():
             }), 400
 
         # Get jarvis instance
-        jarvis = request.app.config.get('JARVIS_INSTANCE')
+        jarvis = get_jarvis()
         if not jarvis:
             return jsonify({
                 'success': False,
@@ -166,7 +166,7 @@ def web_search():
             }), 400
 
         # Get jarvis instance
-        jarvis = request.app.config.get('JARVIS_INSTANCE')
+        jarvis = get_jarvis()
         if not jarvis:
             return jsonify({
                 'success': False,

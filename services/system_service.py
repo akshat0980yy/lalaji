@@ -14,7 +14,7 @@ if platform.system() == "Windows":
 from utils.windows_utils import WindowsUtils
 
 
-classSystemService:
+class SystemService:
     """Handles system control and Windows integration for JARVIS AI"""
 
     def __init__(self, config):

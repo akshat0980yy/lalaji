@@ -107,7 +107,8 @@ class VoiceModule:
         Returns:
             str: Recognized text or None if recognition failed
         """
-        if not self.use_voice or not self.recognizer:
+        if not self.use_voice or not self.recognizer or sr is None:
+            print("❌ Voice recognition not available")
             return None
 
         try:

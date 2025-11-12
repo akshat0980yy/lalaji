@@ -48,7 +48,7 @@ Input: "reddit" → Output: https://www.reddit.com
 
 Now process: "{website_input}"
 
-Return ONLY the URL:""""
+Return ONLY the URL:"""
 
             messages = [{"role": "user", "content": prompt}]
             response = self.llm_service.call_api(messages)
@@ -139,10 +139,10 @@ CRITICAL YOUTUBE RULES:
 3. OPEN_WEBSITE = When opening YouTube homepage: target should be "youtube"
 
 Examples:
-"open chrome" → {{"action": "OPEN_APP", "target": "chrome", "response": "Opening Chrome"}}
-"play despacito" → {{"action": "PLAY_YOUTUBE", "target": "despacito", "response": "Playing despacito"}}
-"open youtube" → {{"action": "OPEN_WEBSITE", "target": "youtube", "response": "Opening YouTube"}}
-"scroll down" → {{"action": "SCROLL", "target": "down", "params": {{"direction": "down", "amount": 3}}, "response": "Scrolling"}}
+"open chrome" -> {{"action": "OPEN_APP", "target": "chrome", "response": "Opening Chrome"}}
+"play despacito" -> {{"action": "PLAY_YOUTUBE", "target": "despacito", "response": "Playing despacito"}}
+"open youtube" -> {{"action": "OPEN_WEBSITE", "target": "youtube", "response": "Opening YouTube"}}
+"scroll down" -> {{"action": "SCROLL", "target": "down", "params": {{"direction": "down", "amount": 3}}, "response": "Scrolling"}}
 
 Now interpret: {user_command}"""
 

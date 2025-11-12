@@ -38,6 +38,10 @@ def create_app():
     jarvis = JarvisAI(use_voice=False)  # Disable voice for web server mode
     app.config['JARVIS_INSTANCE'] = jarvis
 
+    # Set global instance for routes
+    global global_jarvis
+    global_jarvis = jarvis
+
     # Register blueprints
     app.register_blueprint(command_bp)
     app.register_blueprint(system_bp)

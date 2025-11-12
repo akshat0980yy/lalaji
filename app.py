@@ -29,6 +29,13 @@ def get_jarvis():
     return global_jarvis
 
 
+def set_jarvis(jarvis_instance):
+    """Set the global JARVIS instance"""
+    global global_jarvis
+    global_jarvis = jarvis_instance
+    print(f"✅ Jarvis set in global: {global_jarvis is not None}")
+
+
 def create_app():
     """Create and configure Flask application"""
     app = Flask(__name__)
